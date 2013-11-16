@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>用户管理</title>
+  <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+</head>
+<body  background='__ROOT__/admin/Public/images/allbg.gif'>
+  <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#D6D6D6">
+    <tr>
+    	<td height="35" background="__ROOT__/admin/Public/images/tbg.gif" bgcolor="#E7E7E7">
+        <table width="96%" border="0" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="24%" style="padding-left:10px;">用户列表</td>
+            <td width="76%" align="right"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table class="table table-hover table-bordered">
+        <tr>
+          <td width="8%" height="24" align="center">用户ID</td>
+          <td width="12%" align="center">账号</td>
+          <td width="12%" align="center">密码</td>
+          <td width="18%" align="center">邮箱</td>
+          <td width="26%" align="center">评论</td>
+          <td width="12%" align="center">注册时间</td>
+        </tr>
+        <foreach name='user_array' item='list'>
+          <tr bgcolor="#FFFFFF" align="center">
+            <td width="8%"><{$list['id']}></td>
+            <td width="12%" height="24" align="center"><{$list['account']}></td>
+            <td width="12%" align="center"><{$list['pwd']}></td>
+            <td width="18%" align="center"><{$list['email']}></td>
+            <td width="26%" align="center"><{$list['comment']}></td>
+            <td width="12%" align="center"><{$list['in_time']}></td>
+            <td><a href="#"><u>删除</u></a></td>
+          </tr>
+        </foreach> 
+      </table>
+      </td>
+    </tr>
+    <tr bgcolor="#FBFCE2">
+      <td>
+        用户信息、修改
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

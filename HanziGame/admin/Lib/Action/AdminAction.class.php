@@ -24,6 +24,7 @@ class AdminAction extends BaseAction
       			'key' => '词库管理',
           	    'list'=>array(
                             array('name'=>'词库列表','url'=>'?m=WordAdmin&a=index'),
+                            array('name'=>'易错词集锦','url'=>'?m=WordAdmin&a=errorword'),
                             array('name'=>'词汇入库','url'=>'?m=WordAdmin&a=wordimport'),
                             array('name'=>'词汇导出','url'=>'?m=WordAdmin&a=wordexport'),
             	        )
