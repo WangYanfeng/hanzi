@@ -1,0 +1,52 @@
+body {
+ background-color: rgb(240, 100, 60);
+ padding:0px;
+ margin:auto;
+ text-align:center;
+ /*background-color:#abcdef;*/
+}
+table{
+  background-color:#abcdef;
+  width:99%; 
+  height:800px;
+  border:0;
+}
+
+dl.bitem {
+	width:100%;
+	margin:10px 0px 0px 0px;
+}
+
+dl.bitem dt {
+  height:26px;
+  line-height:26px;
+  text-align:center;
+}
+
+dl.bitem dd {
+  padding:0px 0px 0px 0px;
+}
+
+div.items
+{
+	line-height:30px;
+  background-color:rgb(240,160,60);
+  cursor: pointer;
+}
+div.items:hover
+{
+  background-color:rgb(240, 100, 60);
+}
+
+ul {
+  padding-top:4px;
+}
+
+li {
+  padding-top: 20px;
+  height:22px;
+}
+.sitemu{
+	padding:0px 0px 0px 0px;
+  text-align: center;
+}

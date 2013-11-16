@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>   
+<html>   
+<head>   
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />   
+<title>注册</title>   
+<link rel="stylesheet" href="__ROOT__/home/Public/css/regist.css">
+<script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script> 
+<script src="__ROOT__/home/Public/js/logo.js"></script>
+</head>
+<body>
+<div id="color_span">
+  <div style="position:absolute; top:8%; margin-left:10%;">
+    <img id="logo_pic" src="__ROOT__/home/Public/images/bian.png" />
+  </div>
+  <div class="wrap"> 
+      <section class="registForm">   
+        <header>
+          <h1>用户注册</h1>   
+        </header>   
+        <div class="registForm_content">
+          <span id="tip" class="wrongTip"></span>   
+          <fieldset>   
+            <div class="inputWrap">   
+              <input type="text" id="userName" placeholder="用户名称" autofocus required>  
+            </div>   
+            <div class="inputWrap">   
+              <input type="password" id="password" placeholder="设置密码" required>   
+            </div>   
+            <div class="inputWrap">   
+              <input type="password" id="re_password" placeholder="确认密码" required>   
+            </div> 
+            <div class="inputWrap">   
+              <input type="text" id="email" placeholder="邮箱" required>   
+            </div> 
+          </fieldset>   
+          <fieldset>   
+            <input type="submit" value="注册">  
+          </fieldset>   
+        </div>   
+      </section>   
+  </div>
+  <div id="text">
+        「知之为知之，不知为不知，是知也。」
+  </div>
+</div>
+<footer>
+  vvv
+</footer>
+<script>
+  $(function(){
+    $("fieldset input[type=submit]").click(function() {
+      var name=$("#userName").val();
+      var password=$("#password").val();
+      var re_password=$("#re_password").val();
+      var email=$("#email").val();
+      if(name!=""&&password!=""&&email!=""){
+        if (password!=re_password) {
+          $("#tip").html("重复密码不一致！");
+          $("#re_password").val("");
+        }else{
+          $.post('?m=Index&a=regist',
+             {userName:name,
+              userPassword:password,
+              userEmail:email}, 
+              function(data) {
+                if (data=="success") {
+                  $("#tip").html(":) 注册成功！");
+                  setTimeout("window.location.href='__APP__",3000);
+                }else{
+                  $("#tip").html(data);
+                }
+              });
+        }
+      }        
+    });
+
+  })
+</script>    
+</body>   
+</html>   
+  
+  

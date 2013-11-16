@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<meta charset="utf-8">
+	<title>Grid Example</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="__ROOT__/mobile/Public/css/jquery.mobile-1.3.2.min.css"/>	
+    <link href="__ROOT__/mobile/Public/css/login.css" type="text/css" rel="stylesheet">
+	<script src="__ROOT__/mobile/Public/js/jquery-2.0.3.min.js"></script>
+	<script src="__ROOT__/mobile/Public/js/jquery.mobile-1.3.2.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="home">
+	<div data-role="header">
+		<h1>用户登录</h1>
+	</div>
+    <form  action="<{:U("/Index/dologin/")}>" method="post">
+    	<!-- 输入用户名和密码-->
+    	<div class="ui-grid-b">
+        	<div class="ui-block-a"></div>
+            <div class="ui-block-b">
+            	<input type="text" name="userName" placeholder="输入用户名"></input>
+            </div> 
+            <div class="ui-block-c"></div>                     
+            
+            <div class="ui-block-a"></div>
+            <div class="ui-block-b">
+      			<input type="password" name="password" placeholder="输入密码"></input>
+            </div>
+            <div class="ui-block-c"></div>     
+            <div class="ui-block-a"></div>        
+            <div class="ui-block-b">
+            	<input type="submit" class="button" value="登录"></input>
+            </div>
+            <div class="ui-block-c"></div>
+        </div>
+        
+        <div class="ui-grid-c">
+        	<div class="ui-block-a"></div>
+        	<div class="ui-block-b">
+            	<input type="checkbox" id="keepPassword" class="custom" data-role="none"></input>
+                <label for="keepPassword">记住密码</label>
+            </div>
+            <div class="ui-block-c">
+            </div>
+            <div class="ui-blocks-d"></div>
+        </div>
+        <div class="ui-grid-c">
+        	<div class="ui-block-a"></div>
+            <div class="ui-block-b">
+            	<a data-role="button" href="<{:U("/Index/regist/")}>" data-ajax="false">注册新用户</a>
+            </div>
+            <div class="ui-block-c">
+            	<a data-role="button" href="#" data-ajax="false">忘记密码</a>
+            </div>
+            <div class="ui-block-d"></div>
+        </div>
+    </form>	
+</div>
+</body>
+</html>
+

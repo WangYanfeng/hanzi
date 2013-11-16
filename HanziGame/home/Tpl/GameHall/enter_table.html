@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>游戏中..</title>
+    <link rel="stylesheet" href="__ROOT__/home/Public/styles/progressbar.css">
+    <link rel="stylesheet" href="__ROOT__/home/Public/styles/enter_table.css">
+    <!-- Bootstrap -->
+    <link href="__ROOT__/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body style="background: url(__ROOT__/home/Public/images/pattern6.png) repeat scroll 0% 0% transparent;">
+    <div style="margin-top: 40px;">
+        <!--页面加载进度条-->
+        <!--<div class="enprogress-bar enorange"><span id="enter_progress" style="width:0;"></span></div>-->
+        <!--提示信息-->
+        <div id="alertmsg" style="height: 50px; width: 1350px; margin: 0 auto;">
+        </div>
+        <div style="width: 1350px; margin: 0 auto;">
+            <table style="width: 1060px; float: left;">
+                <tr>
+                    <td style="width: 230px;">
+                        <div style="width: 200px; line-height: 520px; margin-right: 30px;" class="boxshadow">
+                            <div class="grouptitle">
+                                甲组</div>
+                            <div id="group1" type="1">
+                                <for start="0" end="$upg" name="i">
+                            <div class="groupitem" onclick="managegroup(this,<{$i+1}>)">
+                                <div class="headicon_init"></div>
+                                <div class="userinfo">
+                                    <div class="account"></div>
+                                    <div class="score">积分:<span></span></div>   
+                                </div>
+                            </div>
+                        </for>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 600px;" class="boxshadow">
+                        <!--裁判界面-->
+                        <div id="jmid" style="width: 600px; font-size: 20px; font-weight: bold;">
+                            <div style="height: 65px; border-bottom: 2px solid white; background-color: rgba(54, 56, 64, 0.9);">
+                                <div style="width: 110px; line-height: 65px; text-align: right; float: left;">
+                                    正确答案：</div>
+                                <div id="sAnswer" style="width: 480px; line-height: 65px; float: right; text-align: left;
+                                    color: White;">
+                                </div>
+                            </div>
+                            <div style="height: 115px; border-bottom: 2px solid white; background-color: rgba(54, 56, 64, 0.9);">
+                                <div style="width: 110px; line-height: 115px; text-align: right; float: left;">
+                                    释义：</div>
+                                <div id="sQuestion" style="width: 480px; line-height: 115px; float: right; text-align: left;
+                                    color: White;">
+                                    <span id="sExplain"></span>
+                                </div>
+                            </div>
+                            <div style="height: 410px; background: white;">
+                                <div style="width: 510px; float: left; margin-top: 2px;">
+                                    <div class="tabbable tabs-left">
+                                        <ul class="nav nav-tabs" id="myTab_judge" style="margin-right: 6px; margin-top: 10px;
+                                            font-weight: normal;">
+                                            <li><a style="font-size: 16px; font-weight: bold;">选手答案</a></li>
+                                            <li class="active"><a href="#sUserAnswer1">Han</a></li>
+                                            <li><a href="#sUserAnswer2">Zi</a></li>
+                                            <li><a href="#sUserAnswer3">Bi</a></li>
+                                            <li><a href="#sUserAnswer4">Sai</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <canvas class="tab-pane active" id="sUserAnswer1" width="400px" height="400px">浏览器不支持Canvas</canvas>
+                                            <canvas class="tab-pane" id="sUserAnswer2" width="400px" height="400px"></canvas>
+                                            <canvas class="tab-pane" id="sUserAnswer3" width="400px" height="400px"></canvas>
+                                            <canvas class="tab-pane" id="sUserAnswer4" width="400px" height="400px"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="judge_canvas_operation">
+                                    <div class="btn" style="margin-top: 150px; margin-bottom: 10px;" onclick="judge_answer(1)">
+                                        正确</div>
+                                    <div class="btn" onclick="judge_answer(0)">
+                                        错误</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--比赛界面-->
+                        <div id="mid" style="width: 600px; font-size: 20px;">
+                            <div style="height: 65px; width: 600px; font-weight: bold; background-color: rgba(54, 56, 64, 0.9);
+                                border-bottom: 2px solid white;">
+                                <div style="width: 220px; text-align: right; float: left;">
+                                    <div style="width: 110px; line-height: 65px; text-align: right; float: left;">
+                                        评判结果：</div>
+                                    <div id="sResult" style="width: 100px; line-height: 65px; float: right; text-align: left;
+                                        color: White;">
+                                    </div>
+                                </div>
+                                <div style="width: 320px; text-align: right; float: right;">
+                                    <div style="width: 120px; line-height: 65px; text-align: right; float: left;">
+                                        正确答案：</div>
+                                    <div id="correctAnswer" style="width: 200px; line-height: 65px; float: right; text-align: left;
+                                        color: White;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height: 115px; width: 600px; font-weight: bold; background-color: rgba(54, 56, 64, 0.9);
+                                border-bottom: 2px solid white;">
+                                <div style="width: 110px; line-height: 115px; text-align: right; float: left;">
+                                    释义：</div>
+                                <div id="txtQuestion" style="width: 480px; line-height: 115px; float: right; text-align: left;
+                                    color: White;">
+                                    <span id="txtExplain"></span>
+                                </div>
+                            </div>
+                            <div style="height: 410px; width: 600px; background: white;">
+                                <div style="width: 510px; float: left; margin-top: 2px;">
+                                    <div class="tabbable tabs-left">
+                                        <ul class="nav nav-tabs" id="myTab_user" style="margin-right: 6px; margin-top: 10px;">
+                                            <li><a style="font-size: 16px; font-weight: bold;">拼音</a></li>
+                                            <li class="active"><a href="#txtAnswer1">Han</a></li>
+                                            <li><a href="#txtAnswer2">Zi</a></li>
+                                            <li><a href="#txtAnswer3">Bi</a></li>
+                                            <li><a href="#txtAnswer4">Sai</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <canvas class="tab-pane active" id="txtAnswer1" width="400px" height="400px">浏览器不支持Canvas</canvas>
+                                            <canvas class="tab-pane" id="txtAnswer2" width="400px" height="400px"></canvas>
+                                            <canvas class="tab-pane" id="txtAnswer3" width="400px" height="400px"></canvas>
+                                            <canvas class="tab-pane" id="txtAnswer4" width="400px" height="400px"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="user_canvas_operation">
+                                    <div class="btn" style="margin-top: 150px; margin-bottom: 10px;" onclick="rewrite(0);">
+                                        清空</div>
+                                    <div id="btnRewrite" class="btn" style="margin-bottom: 10px;" onclick="rewrite(1);">
+                                        重写</div>
+                                    <div id="btnAnswer" class="btn" onclick="answer();">
+                                        提交</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-bar orange">
+                            <span id="sprogress" style="width: 100%;"></span>
+                        </div>
+                    </td>
+                    <td style="width: 230px;">
+                        <div style="width: 200px; line-height: 520px; margin-left: 30px;" class="boxshadow">
+                            <div class="grouptitle">
+                                乙组</div>
+                            <div id="group2" type="2">
+                                <for start="0" end="$upg" name="i">
+                                <div class="groupitem" onclick="managegroup(this,<{$i+1}>)">
+                                    <div class="headicon_init"></div>
+                                    <div class="userinfo">
+                                        <div class="account"></div>
+                                        <div class="score">积分:<span></span></div>                                        
+                                    </div>
+                                </div>
+                            </for>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 180px;">
+                    <td colspan="3" style="">
+                        <div style="height: 150px; margin-top: 20px; font-size: 16px; font-weight: bold;
+                            background-color: rgba(54, 56, 64, 0.9);" class="boxshadow">
+                            <div style="width: 845px; height: 150px; float: left; border-right: 2px solid white;">
+                                <div style="margin: 5px; color: white; width: 840px;">
+                                    <div style="width: 130px; height: 140px; margin-left: 5px; margin-top: 5px; float: left;">
+                                        <img src="/HanziGame/home/Public/images/head/mouse.png" class="img-rounded headshadow" style="width: 130px;
+                                            height: 130px;" />
+                                    </div>
+                                    <div style="width: 690px; float: right; font-size: 16px; color: White;">
+                                        <div style="width: 200px; line-height: 140px; float: left;">
+                                            当前用户：<span id="suserName"></span></div>
+                                        <div style="width: 350px; margin-right: 5px; float: right;">
+                                            <div style="font-weight: bold; line-height: 30px; margin-top: 5px; margin-bottom: 1px;
+                                                border-bottom: 2px solid white;">
+                                                错词列表</div>
+                                            <div id="errorWords" style="overflow: auto; height: 100px; margin-left: 3px;">
+                                            </div>
+                                        </div>
+                                        <div style="float: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="operation_panel" style="width: 200px; height: 150px; float: right; margin: 5px;">
+                                <div id="btnObjection" class="btn btn-block" style="display: none;" onclick="raise_objection();">
+                                    我有异议</div>
+                                <div id="exitTable" class="btn btn-block" style="display: none;" onclick="exit();">
+                                    退出当前组</div>
+                                <div id="btnStart" class="btn btn-block" style="display: none;" onclick="start_game();">
+                                    比赛开始</div>
+                                <div id="btnNextGroup" class="btn btn-block" style="display: none;" onclick="next_group();">
+                                    下一题</div>
+                                <div id="judge" class="btn btn-block" onclick="judge_application();">
+                                    我来当裁判</div>
+                                <a id="btnscores" class="btn btn-block" style="display: none;" href="#scoreModal"
+                                    role="button" data-toggle="modal">查看积分</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="width: 250px; height: 771px; float: right; font-size: 15px; color: White;"
+                class="boxshadow">
+                <div class="judge">
+                    无裁判</div>
+                <div class="notice">
+                </div>
+                <div id="chatbox">
+                </div>
+                <div id="inputmsg" class="input-append">
+                    <textarea id="txtmsg" maxlength="100" placeholder="发消息" class="span2"></textarea>
+                    <button class="btn" type="button" id="sendmsg">
+                        发送</button>
+                </div>
+                <!-- </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="scoreModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="scoreModalLabel"
+        aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="H1">
+                得分榜</h3>
+        </div>
+        <div class="modal-body">
+            <table id="tb_score" class="table table-striped table-hover">
+                <tr style="font-weight: bold;">
+                    <td style="width: 60px;">
+                        组别
+                    </td>
+                    <td>
+                        选手
+                    </td>
+                    <td>
+                        得分
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                关闭</button>
+        </div>
+    </div>
+</body>
+<!-- Scripts -->
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_chat.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_user.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_judge.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_progressbar.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_game_control.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_gameover.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_canvas.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_exception.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_errwords.js"></script>
+<script type="text/javascript" src="__ROOT__/home/Public/scripts/table_eventmanage.js"></script>
+<!--Bootstrap-->
+<script type="text/javascript" src="/HanziGame/Public/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript">
+    // 启动页面加载进度条
+    // enter_progressbar();
+
+    // 如果上次保存过的table对象，则恢复上次的状态；
+    // 否则，采用新的状态
+    /*if (sstorage.table) {
+        table.renew();
+    } else { 
+        table.init(<{$_REQUEST['rid']}>,<{$_REQUEST['tid']}>,<{$_REQUEST['groups']}>,<{$_REQUEST['upg']}>);
+    }*/
+    // 页面每次刷新都会断开连接，因此需要重新建立连接
+    table.init(<{$rid}>,<{$tid}>,<{$groups}>,<{$upg}>,<{$user_name}>);
+    table.init_socket();
+    // 存储session
+    table.save_page_state();
+
+    // 设置页面加载完毕，使进度条停止
+    table.entercompleted = 1;
+</script>
+</html>

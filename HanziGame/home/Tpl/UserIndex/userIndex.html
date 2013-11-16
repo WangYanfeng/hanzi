@@ -1,0 +1,146 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>个人主页</title>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="__ROOT__/home/Public/css/userIndex.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+</head>
+<body style="background-color:#E4E8EC">
+	<div id="navbar" class="navbar navbar-inverse  navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li><a href="?m=Index&a=mainpage">首页</a></li>
+					<li><a href="?m=GameHall&a=hall">游戏大厅</a></li>
+					<li class="active"><a href="?m=UserIndex&a=userIndex">个人信息</a></li>
+				</ul>
+				<header class="header">
+					<div style="text-align:right;margin-top:10px;">
+						<a href="<{:U("/Index/logout")}>">您好,<{$_SESSION['user'][account]}>! | 退出</a>
+					</div>
+				</header>
+			</div>
+		</div>
+	</div>
+	<div class="container"  style="margin-top:90px">
+		<div id="userinfo">
+			<section>
+				<div class="span12 panel">
+					<div class="row">
+						<div class="span4">
+							<div style="margin:15px;">
+								<div id="userownlogo">
+									<img src="__ROOT__/home/Public/images/user/<{$userAccount['id']}>.jpg" class="img-rounded user_icon"><{$userAccount['account']}>
+								</div>
+								<table class="table" style="margin:5px;">
+									<tr>
+										<td>得分:</td>
+										<td><{$userinfo[points]}></td>
+									</tr>
+									<tr>
+										<td>裁判次数</td>
+										<td><{$userinfo[judge_experience]}></td>
+									</tr>
+									<tr>
+										<td>裁判信誉:</td>
+										<td><{$userinfo[credit]}></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="span8">
+							<div id="modifyinfo">
+								<div>
+									<div>修改个人信息</div>
+								</div>
+								<hr>
+								<div>
+									<div>错词记录</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div id="friendinfo">
+			<section>
+				<div class="span12 panel">
+					<div class="row">
+						<div class="span4">
+							<div style="margin:15px;">好友列表</div>
+							<foreach name='friendsName' item='list'>
+								<div class="friendname">
+									<div id="friend<{$list['id']}>" onclick=showFriendinfo(<{$list['id']}>)>
+										<div class="friendlist">
+											<img src="__ROOT__/home/Public/images/user/<{$list['id']}>.jpg" class="img-circle">
+											<span><{$list[account]}></span>
+										</div>
+									</div>
+								</div>
+							</foreach>
+						</div>
+						<div class="span8">
+							<div style="padding:15px; min-height:200px">
+								<div>好友信息</div>
+								<foreach name='friendsInfo' item='list'>
+									<div class="friendinfo" id="friendinfo<{$list[uid]}>">
+										<table class="table table-striped" style="margin:5px">
+											<tr>
+												<td>得分:</td>
+												<td><{$list[points]}></td>
+											</tr>
+											<tr>
+												<td>裁判次数:</td>
+												<td><{$list[judge_experience]}></td>
+											</tr>
+											<tr>
+												<td>裁判信誉:</td>
+												<td><{$list[credit]}></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td><button class="btn btn-warning" onclick=delFriend(<{$userAccount['id']}>,<{$list['uid']}>)>删除好友</button></td>
+											</tr>
+										</table>
+									</div>
+								</foreach>
+								<div id="delFriendTip"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	
+	<footer class="footer">
+		<div>ddd</div>
+	</footer>
+	<script>
+		function delFriend(userid,friendid){
+			$.post(
+						"?m=UserIndex&a=delFriend",
+						{id:userid,
+						 friend_id:friendid},
+						function (data){
+							$("#delFriendTip").css('display','inline');
+							$("#delFriendTip").html(data);
+							$("#delFriendTip").slideUp("slow");
+							window.location.reload();
+						}
+				);
+		}
+		function showFriendinfo(id){
+			$(".friendname > div").removeClass("friendname_choosen");
+			$("#friend"+id).addClass("friendname_choosen");
+			$(".friendinfo").css('display','none');
+			$("#friendinfo"+id).css('display','inline');
+			//$("#friendinfo"+id).slideUp("slow");
+		}
+	</script>
+</body>
+</html>

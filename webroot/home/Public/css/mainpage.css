@@ -1,0 +1,124 @@
+.panel{
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 5px 1.0px rgba(0, 0, 0, 0.25), 0 15px 60px 5px rgba(0, 0, 0, 0.15);
+    color: #333333;
+    margin-bottom: 100px;
+    padding: 0;
+}
+header div a{
+	color: #ffffff;
+}
+#userinfo{
+	margin-left: 10px;
+	padding-top:10px;
+}
+#noticelist{
+	padding-top: 15px;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+}
+.user_icon{
+	margin-right: 10px;
+	height: 120px;
+	width: 120px;
+}
+.user_icon:hover{
+	box-shadow:2px 2px 3px rgb(240,100,60);
+}
+.title{
+	padding-top: 15px;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+	font-size: 28px;
+	text-align: center;
+}
+.butty_content{
+	padding-left: 20px;
+	padding-right: 20px;
+	min-height: 100px;
+	padding-bottom: 40px;
+	background: url(/yunOS/home/Public/images/butty_content.jpg) no-repeat;
+	background-position: bottom right;
+	font-size: 16px;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+}
+#article{
+	text-align: center;
+}
+.article{
+	cursor: pointer;
+	border-radius: 6px 6px 6px 6px;
+	margin:5px;
+	background-color:#aacfff
+}
+.article :hover{
+	border-radius: 6px 6px 6px 6px;
+	background-color:rgb(250,100,60);
+}
+.article_choosen{
+	border-radius: 6px 6px 6px 6px;
+	background-color:rgb(250,100,60);
+}
+#articlecontent{
+	min-height: 350px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-style: solid; border-width: 2px;border-color: #abcdef;
+	border-radius: 6px 6px 6px 6px;
+	text-align: left;
+	overflow-y:auto;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+}
+.article .articlelist{
+	width: 90%;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+	text-align: left;
+}
+#article img{
+	margin: 5px;
+	height: 45px;
+	width: 45px;
+}
+.username{
+	cursor: pointer;
+	border-radius: 6px 6px 6px 6px;
+	margin:5px;
+}
+.username :hover{
+	border-radius: 6px 6px 6px 6px;
+	background-color:rgb(250,100,60);
+}
+.username .userlist{
+	float: left;
+}
+.userlist img{
+	margin: 5px;
+	height: 45px;
+	width: 45px;
+}
+.word{
+	cursor: pointer;
+	border-radius: 2px 2px 2px 2px;
+	margin-left:15px;
+	width: 21%;
+	float: left;
+	
+}
+.word .wordlist{
+	padding: 10px;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+	text-align: left;
+	background-color:#aacfff;
+}
+.word .wordlist:hover{
+	border-radius: 2px;
+	background-color:rgb(250,100,60);
+}
+.wordTip{
+	clear: both;
+	font-family: 微软雅黑,Helvetica,Arial,sans-serif;
+	display: none;
+}
+footer{
+	text-align: center;
+    min-height: 40px;
+}

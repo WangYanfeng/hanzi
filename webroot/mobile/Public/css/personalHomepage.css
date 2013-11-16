@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* CSS Document */
+.segmented-control { text-align:center;}
+.ui-control-active { background:white; color:black; }
+.ui-control-inactive { background:#FA8D4A; color:white; }

@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ui-grid-b .ui-block-a {
+	width:5%;	
+}
+.ui-grid-b .ui-block-b {
+	width:90%;	
+}
+.ui-grid-b .ui-block-c {
+	width:5%;	
+}
+.ui-grid-c .ui-block-a {
+	width:5%;	
+}
+.ui-grid-c .ui-block-b {
+	width:45%;	
+}
+.ui-grid-c .ui-block-c {
+	width:45%;	
+}
+.ui-grid-c .ui-block-d {
+	width:5%;	
+}
+	

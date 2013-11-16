@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.ui-grid-b .ui-block-a {
+	width:5%;	
+}
+.ui-grid-b .ui-block-b {
+	width:90%;	
+}
+.ui-grid-b .ui-block-c {
+	width:5%;	
+}
+

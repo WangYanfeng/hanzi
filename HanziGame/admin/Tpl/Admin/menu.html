@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>菜单</title>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+<script type="text/javascript" src="__ROOT__/Public/js/bootstrap.js"></script>
+<script src="__ROOT__/Public/js/jquery.js"></script>
+<load href='__ROOT__/admin/Public/css/menu.css'/>
+<script type="text/javascript">
+  $(function(){
+    var href=$("table dd li:first a").attr("href");
+    window.parent.main.location.href=href;
+  });
+</script>	
+<base target="main" />	
+</head>
+<body target="main">
+  <table>
+    <tr>
+    	<td style='padding-left:3px;padding-top:50px' valign="top">
+    	    <dl class='bitem'>
+    	      <dt><b><{$menulist['key']}></b></dt>
+    	      <dd style='display:block'>
+    	        <ul class='sitemu'>
+    	          <volist  name="menulist['list']" id='menuitem'>
+                    <li>
+                      <div class='items'>
+                        <a href='<{$menuitem['url']}>' target='main'><{$menuitem['name']}></a>
+                      </div>
+                    </li>  
+    	          </volist>
+    	        </ul>
+    	      </dd>
+    	    </dl>
+    	</td>
+    </tr>
+  </table>
+</body>
+</html>

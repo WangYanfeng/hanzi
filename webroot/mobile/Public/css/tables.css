@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+#pagePlayer {
+	/*background:#f00;	*/
+}
+#wrap {	
+	border-top:solid;
+	border-bottom:solid;
+}
+#wrap>.ui-block-a {
+	width:15%;	
+	height:280px;
+}
+#wrap>.ui-block-b {
+	width:70%;	
+	height:280px;
+	border-left:solid;
+	border-right:solid;
+}
+#wrap>.ui-block-c {
+	width:15%;	
+	height:280px;
+}
+#timu{
+	text-align:center;		
+}
+#daan {
+	text-align:center;		
+	border-top:solid;
+	border-bottom:solid;
+}
+canvas {
+	background:#CCCCCC;
+}
+
+#wrapCanvas {
+	text-align:center;	
+}
+.player {
+	border-top:#CCC solid;	
+	cursor:pointer;
+	height:50px;
+}
+.player:active,.player:focus {
+	color:#CCCCCC;	
+	background:#CCC;
+}
+.zu {
+	height:36px;	
+}
+#wrap2 .ui-block-a {
+	width:70%;	
+}
+#wrap2 .ui-block-b {
+	width:30%;	
+}
+#message {
+	background:#ccc;
+	height:150px;	
+}

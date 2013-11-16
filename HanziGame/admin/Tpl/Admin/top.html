@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>导航</title>
+<load href='__ROOT__/Public/js/jquery.js'/>
+<load href='__ROOT__/admin/Public/js/logo.js'/>
+<load href='__ROOT__/admin/Public/css/top.css'/>
+<script type="text/javascript">
+  $(function(){
+    $("#top_pan #item1").css('background','#ffffff');
+    $("#top_pan #item1").css("height","35px");
+    $("#top_pan div").click(function() {      
+      $("#top_pan div").css("background","#abcdef");
+      $(this).css("background","#ffffff");
+      $(this).css("height","35px");
+    });
+  });
+</script>
+</head>
+<body style="background-color:rgb(240,100,60);" >
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+    <tr>
+    	<td width='20%' height="60"><img id="logo_pic" src="__ROOT__/admin/Public/images/logo.png" /></td>
+    	<td width='80%' align="right" valign="bottom">
+    		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    			<tr>
+    				<td align="right" width="96">
+              <notempty name="Think.session.user">
+                <a href="{:U('Index/logout')}" target="_top"s class='loginout'>您好,<{$Think.session.user.account}>! |注销退出</a></td>
+              </notempty> 
+    			</tr>
+    			<tr>
+    				<td height="30" class="top_main">
+    				  <dl id="top_pan">
+    				  	<dd>
+    				  		<div class='item' id='item1' ><a href="?m=Admin&a=menu&item=1" target="menu">用户管理</a></div>
+    				  	</dd>
+    				  	<dd>
+    				  		<div class='item' id='item2' ><a href="?m=Admin&a=menu&item=2" target="menu">词库管理</a></div>
+    				  	</dd>
+    				  	<dd>
+    				  		<div class='item' id='item3' ><a href="?m=Admin&a=menu&item=3" target="menu">美文管理</a></div>
+    				  	</dd>
+    				  	<dd>
+    				  		<div class='item' id='item4' ><a href="?m=Admin&a=menu&item=4" target="menu">系统管理</a></div>
+    				  	</dd>
+    				  </dl>
+    				</td>
+    			</tr>
+    		</table>
+    	</td>
+    </tr>
+  </table>
+</body>
+</html>

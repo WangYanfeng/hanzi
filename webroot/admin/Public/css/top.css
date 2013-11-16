@@ -1,0 +1,36 @@
+ #top_pan {
+	margin:0px;
+	padding:0px;
+	float:left;
+}
+#logo_pic{
+	margin-left:80px;
+	width: 90px;
+	height: 90px;
+}
+
+.imgover{-moz-box-shadow: 0 0 5px #fff,0 0 15px #fff; -webkit-box-shadow: 0 0 15px #fff,0 0 15px #fff; box-shadow: 0 0 15px #fff,0 0 15px #fff;}
+  
+
+#top_pan dd {
+	padding:0px;
+	float:left;
+	cursor: pointer;
+}
+
+div.item
+{
+  text-align:center;
+  background:#abcdef;
+	width:120px;
+	height:33px;
+	line-height:30px;
+}
+table .loginout{
+	font-size:14px;
+	color:#222222;
+}
+table .loginout:hover{
+	color: #ffffff;
+    text-decoration: underline;
+}

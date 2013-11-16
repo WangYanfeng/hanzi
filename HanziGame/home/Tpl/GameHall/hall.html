@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>游戏大厅</title>
+    <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+    <script type="text/javascript" src="__ROOT__/Public/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="__ROOT__/home/Public/css/hall.css">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+    <script>
+	function showTable(id){
+		$(".house > div").removeClass("house_choosen");
+		$("#house"+id).addClass("house_choosen");
+    	$.post('?m=GameHall&a=getTable',
+           {rid:id}, // 房间号rid
+           function(data) {
+             $("#showTable").empty().html(data);
+         });
+	};
+    </script>
+</head>
+<body style="background-color: #E4E8EC">
+    <div id="navbar" class="navbar navbar-inverse  navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="?m=Index&a=mainpage">首页</a></li>
+                    <li class="active"><a href="?m=GameHall&a=hall">游戏大厅</a></li>
+                    <li><a href="?m=UserIndex&a=userIndex">个人信息</a></li>
+                </ul>
+                <header class="header">
+					<div style="text-align:right;margin-top:10px;">
+						<a href="?m=Index&a=logout">您好,<{$_SESSION['user'][account]}>! | 退出</a>
+					</div>
+				</header>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 90px">
+        <div class="row-fluid">
+            <div class="span2">
+            </div>
+            <div class="span8" style="text-align: center">
+                <h4>
+                    房间选择</h4>
+                <div id="house_span">
+                    <foreach name='house_array' item='list'>
+								<div style="float:left"  class="house">
+									<div id="house<{$list["id"]}>" onclick=showTable(<{$list["id"]}>)>
+											<div><h4><{$list["name"]}></h4><{$list["type"]}>人房<br><{$list["total_num"]}>人在线</div>
+										</div>
+								</div>
+						</foreach>
+                </div>
+                <div class="showTable">
+                    <div class="row-fluid">
+                        <div class="span9" id="showTable">
+                        </div>
+                        <div class="span3" id="info">
+                            <div id="hall_notice">
+                                <div class="title">
+                                    大厅公告</div>
+                                <div style="color: red">
+                                    新版本上线测试</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+		<div>ddd</div>
+	</footer>
+</body>
+</html>

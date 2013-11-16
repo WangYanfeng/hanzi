@@ -1,0 +1,73 @@
+.panel{
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 8px 1.5px rgba(0, 0, 0, 0.35), 0 20px 70px 8px rgba(0, 0, 0, 0.25);
+    color: #333333;
+    margin-bottom: 120px;
+    padding: 0;
+}
+header div a{
+	color: #ffffff;
+}
+.user_icon{
+	height: 120px;
+	width: 120px;
+}
+#userinfo{
+	padding-top: 15px;
+}
+#userownlogo{
+	border-radius: 8px 8px 8px 8px;
+	width: 100%;
+}
+#userownlogo :hover{
+	box-shadow:2px 2px 3px rgb(240,100,60);
+}
+#userinfo table{
+	background:rgb(250,170,70);
+	border-radius: 8px 8px 8px 8px;
+}
+#modifyinfo{
+	margin-top: 15px;
+	text-align: center;
+}
+#friendinfo{
+	text-align: center;	
+}
+.friendname{
+	cursor: pointer;
+	border-radius: 6px 6px 6px 6px;
+	margin:5px;
+	background-color:#aacfff;
+}
+.friendname :hover{
+	border-radius: 6px 6px 6px 6px;
+	background-color:rgb(250,100,60);
+}
+.friendname_choosen{
+	border-radius: 6px 6px 6px 6px;
+	background-color:rgb(250,100,60);
+}
+.friendinfo{
+	display: none;
+	border-radius: 6px 6px 6px 6px;
+	background-color:#aacfff;
+}
+.friendname .friendlist{
+	width: 40%;
+}
+#friendinfo img{
+	margin: 5px;
+	height: 45px;
+	width: 45px;
+}
+#delFriendTip{
+	display: none;
+	padding: 10px;
+	width: 50%;
+	font-size: 20px;
+	border-radius: 6px 6px 6px 6px;
+	background: rgb(250,100,60);
+}
+footer{
+    min-height: 40px;
+}

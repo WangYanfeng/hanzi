@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选择游戏房间</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__ROOT__/mobile/Public/css/jquery.mobile-1.3.2.min.css">
+<link href="css/hall.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/mobile/Public/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/js/jquery.mobile-1.3.2.min.js"></script>
+</head>
+
+<body>
+<div data-role="page" class="background-gradient">
+	<div data-role="header" class="header-gradient">
+		<h1>选择房间</h1>		
+	</div>
+    <div data-role="content">
+    	<div class="ui-grid-a">
+        <for start="0" end="$num">
+          <if condition="$i%2 eq 0">
+            <div class="ui-block-a">
+              <a href="__APP__/GameHall/room/rid/<{$house_array[$i][id]}>" class="room" data-ajax="false" data-role="button"><{$house_array[$i][name]}></a>
+              <a>&nbsp&nbsp <{$house_array[$i][type]}>人房 &nbsp&nbsp 房间人数共<{$house_array[$i][total_num]}>人</a>
+            </div>
+            <else/>
+              <div class="ui-block-b">
+                <a href="__APP__/GameHall/room/rid/<{$house_array[$i][id]}>" class="room" data-role="button"><{$house_array[$i][name]}></a>
+                <a>&nbsp&nbsp <{$house_array[$i][type]}>人房 &nbsp&nbsp 房间人数共<{$house_array[$i][total_num]}>人</a>
+              </div>
+          </if>
+        </for>
+    </div>
+  </div>
+  <div data-role="footer">
+  </div>
+</div>
+</body>
+</html>

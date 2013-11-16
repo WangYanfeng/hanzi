@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>游戏房间</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="__ROOT__/mobile/Public/css/jquery.mobile-1.3.2.min.css">
+<link href="css/room.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/mobile/Public/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/js/jquery.mobile-1.3.2.min.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+	<div data-role="header">
+    <h1>选择桌子</h1>
+  </div>
+  <div data-role="content">
+		<ul data-role="listview">
+      <for start="0" end="$num">
+        <li>
+          <a href="__APP__/GameHall/enter_table/tid/<{$table_array[$i][id]}>" data-ajax="false">
+            <h3><{$table_array[$i][name]}></h3>
+          </a>
+        </li>
+      </for>
+    </ul>
+    </div>
+    <div data-role="footer">
+    	<div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a href="__APP__/GameHall/hall" data-role="button" data-icon="arrow-l" data-ajax="false">返回上一级</a>
+        </div>
+        <div class="ui-block-b">
+          <input onclick="window.location.href='__APP__/Index/logout'" type="button" value="退出"></input>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

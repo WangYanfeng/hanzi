@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+	<meta  http-equiv="Content-Type" content="text/html; charset=utf-8" charset="UTF-8">
+	<title>首页</title>
+	<script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>
+	<script type="text/javascript" src="__ROOT__/Public/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="__ROOT__/home/Public/css/mainpage.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+	<script>
+		$(function(){
+			$(".word").mouseover(function(){
+				var id=$(this).attr("word_id");
+				$("#wordTip"+id).css('display','inline');
+			});
+			$(".word").mouseout(function(){
+				var id=$(this).attr("word_id");
+				$("#wordTip"+id).css('display','none');
+			});
+		});
+	</script>
+</head>
+<body style="background-color:#E4E8EC">
+	<div id="navbar" class="navbar navbar-inverse  navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><a href="#">首页</a></li>
+					<li><a href="?m=GameHall&a=hall">游戏大厅</a></li>
+					<li><a href="?m=UserIndex&a=userIndex">个人信息</a></li>
+				</ul>
+				<header class="header">
+					<div style="text-align:right;margin-top:10px;">
+						<a href="?m=Index&a=logout">您好,<{$_SESSION['user'][account]}>! | 退出</a>
+					</div>
+				</header>
+			</div>
+		</div>
+	</div>
+	<div  class="container-fluid" style="margin-top:90px">
+		<div class="row-fluid">
+			<div class="span1"></div>
+	    <div class="span2">
+	      <div id="notice">
+	      	<div class="panel">
+	      		<div id="userinfo">
+	      			<div id="userownlogo">
+								<img src="__ROOT__/home/Public/images/user/<{$_SESSION['user'][id]}>.jpg" class="img-rounded user_icon"><{$_SESSION['user'][account]}>
+							</div>
+	      		</div>
+	      		<hr>
+	      		<div id="noticelist">
+	      			<div style="text-align:center;font-size:28px;">系统公告</div>
+	      			<div style="margin:20px;color:red;padding-bottom:180px;">系统上线测试欢迎指正</div>
+	      		</div>
+	      	</div>
+	      </div>
+	    </div>
+	    <div class="span6">
+	      <div class="panel">
+					<div class="title">优美词汇 <font color="red">之</font> 司马光砸缸</div>
+					<hr>
+					<div class="butty_content">
+						<p>有一次，司马光跟小伙伴们在后院里玩耍。院子里有一口大水缸，有个小孩爬到缸沿上玩，一不小心，掉到缸里。缸大水深，眼看那孩子快要没顶了。别的孩子们一见出了事，吓得边哭边喊，跑到外面向大人求救。司马光却急中生智，从地上捡起一块大石头，使劲向水缸砸去，“砰！”水缸破了，缸里的水流了出来，被淹在水里的小孩也得救了。小小的司马光遇事沉着冷静，从小就是一副小大人模样。这就是流传至今“司马光砸缸”的故事。这件偶然的事件使小司马光出了名，东京和洛阳有人把这件事画成图画，广泛流传。</p>
+					</div>
+	      </div>
+	      <div class="panel">
+	      	<div class="title">美文推荐</div>
+					<hr>
+					<div id="article">
+						<section>
+							<div class="row-fluid">
+								<div class="span4">
+									<div>作者</div>
+									<foreach name='articles' item='list'>
+										<div class="article">
+											<div id="article<{$list['id']}>" onclick=showArticle(<{$list['id']}>)>
+												<div class="articlelist">
+													<img src="__ROOT__/home/Public/images/article/<{$list['id']}>.jpg" class="img-circle">
+													<span><{$list[author]}></span>
+													<span>----<{$list[comment]}></span>
+												</div>
+											</div>
+										</div>
+									</foreach>
+								</div>
+								<div class="span8">
+									<div>文章内容</div>
+									<div id="articlecontent"></div>
+								</div>
+							</div>
+						</section>
+					</div>
+	      </div>
+	      <div class="panel" style="height:250px;">
+	      	<div class="title">错词集锦</div>
+					<hr>
+					<div>
+						<foreach name='errorwords' item='list'>
+							<div word_id="<{$list['id']}>" class="word">
+								<div class="wordlist">
+									<span><{$list[topic]}></span>
+									<span>----<{$list[pinyin]}></span>
+								</div>
+								<div id="wordTip<{$list['id']}>" class="wordTip">
+									<div><span>难易度：</span><span><{$list[difficulty]}></span></div>
+									<div><span>解释：</span><span><{$list[explanation]}></span></div>
+								</div>
+							</div>	
+						</foreach>
+					</div>
+	      </div>
+	    </div>
+	    <div class="span2">
+	    	<div>
+	      	<div class="panel">
+		      	<div class="title">今日之星</div>
+						<hr>
+						<div style="height:340px;">
+							<foreach name='topuser' item='list'>
+								<div class="username">
+									<div id="user<{$list['id']}>" onclick=showFriendinfo(<{$list['id']}>)>
+										<div class="userlist">
+											<img src="__ROOT__/home/Public/images/user/<{$list['uid']}>.jpg" class="img-circle">
+												<span><{$list[account]}></span>
+										</div>
+									</div>
+								</div>
+							</foreach>
+						</div>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<footer class="footer">
+		<div>ddd</div>
+	</footer>
+	<script>
+		function showArticle(id){
+			$(".article > div").removeClass("article_choosen");
+			$("#article"+id).addClass("article_choosen");
+			$.ajax({
+				type:'post',
+				url:'?m=Index&a=getArticleContent',
+				data:{article_id:id},
+				success:function(data){
+					$("#articlecontent").html(data);
+				},
+				error:function(){
+					alert('connect error');
+				}
+			})
+		}
+	</script>
+</body>
+</html>

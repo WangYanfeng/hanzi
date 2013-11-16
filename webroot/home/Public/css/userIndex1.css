@@ -1,0 +1,46 @@
+.panel{
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 8px 1.5px rgba(0, 0, 0, 0.35), 0 20px 70px 8px rgba(0, 0, 0, 0.25);
+    color: #333333;
+    margin-bottom: 120px;
+    padding: 0;
+}
+.user_icon{
+	height: 50px;
+	width: 50px;
+}
+#userinfo{
+	padding-top: 15px;
+}
+#modifyinfo{
+	margin-top: 10px;
+	text-align: center;
+}
+#friendinfo{
+	text-align: center;
+	overflow-y:scroll;
+}
+.friendname{
+	border-radius: 6px 6px 6px 6px;
+	margin-left:10px;
+	background-color:#abcdef
+}
+.friendname :hover{
+	background-color:rgba(0, 0, 0, 0.35);
+}
+.friendname_choosen{
+	background-color:rgba(0, 0, 0, 0.35);
+}
+.friendinfo{
+	display: none;
+	border-radius: 6px 6px 6px 6px;
+	margin-left:10px;
+	background-color:#abcdef
+}
+#friendinfo img{
+	height: 20px;
+	width: 20px;
+}
+footer{
+    min-height: 40px;
+}

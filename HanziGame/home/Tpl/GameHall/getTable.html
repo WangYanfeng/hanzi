@@ -1,0 +1,15 @@
+<?php
+	$i=0;
+	while ($i < count($table_array)) {
+		$name=$table_array[$i]['name'];
+		$id=$table_array[$i]['id'];
+		if($i%4==0) {echo "<ul class=\"thumbnails\">";}
+		echo "<li class='span3'>
+			<a href='__APP__/GameHall/enter_table/tid/$id' class='thumbnail'>
+				<img src='__ROOT__/home/Public/images/table.jpg'>
+				<span>$name</span>
+			</a>
+   		</li>";
+		$i++;
+	}
+?>

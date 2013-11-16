@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__ROOT__/mobile/Public/styles/jquery.mobile-1.3.2.css">
+    <link rel="stylesheet" href="__ROOT__/mobile/Public/styles/progressbar.css">
+    <link rel="stylesheet" href="__ROOT__/mobile/Public/styles/tb_panel.css">
+    <link rel="stylesheet" href="__ROOT__/mobile/Public/styles/enter_table.css">
+    <!-- jNotify.jquery -->
+    <link href="__ROOT__/mobile/Public/styles/jNotify.jquery.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="__ROOT__/mobile/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <div data-role="page" id="pageone">
+        <!-- panel 01 -->
+        <div class="panel right" data-role="panel" data-position="left" data-display="push" id="panel_right">
+            <div id="alertmsg" style="height: 50px; margin-bottom: 20px; width: 100%;"></div>
+            <div class="grouptitle">裁判</div>
+            <div id="m_judge" class="groupitem" onclick="judge_application(1);">
+                <div class="judgeicon_init"></div>
+                <div class="userinfo"></div>
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="grouptitle">甲组</div>
+            <div id="group1" type="1">
+                <for start="0" end="$upg" name="i">
+                <div class="groupitem" onclick="managegroup(this,<{$i+1}>)">
+                    <div class="headicon_init"></div>
+                    <div class="userinfo"></div>
+                </div>
+                </for>
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="grouptitle">乙组</div>
+            <div id="group2" type="2">
+                <for start="0" end="$upg" name="i">
+                <div class="groupitem" onclick="managegroup(this,<{$i+1}>)">
+                    <div class="headicon_init"></div>
+                    <div class="userinfo"></div>
+                </div>
+                </for>
+            </div>
+        </div>
+        <div data-role="header" class="header" id="headerone">
+            <span class="open left"><a href="#panel_right"><img src="/mobile/Public/images/header_left.png"></a></span> 
+            <span style="font-size: 20px;">手写汉字大赛</span> 
+            <span class="open right"><a href="#panel_left"><img src="/mobile/Public/images/header_right.png"></a></span>
+        </div>
+        <div data-role="content" style="margin:0; padding:2px;">
+            <div class="ui-grid-a" id="Div1">
+                <div class="ui-block-a row1">评判结果：<span id="sResult"></span></div>
+                <div class="ui-block-b row1">正确答案：<span id="correctAnswer"></span></div>
+            </div>
+            <div class="ui-grid-b" id="explain">
+                <div class="ui-block-a">释义：<span id="txtExplain"></span></div>
+            </div>
+            <div class="tabbable tabs-left" id="main_content">
+                <ul class="nav nav-tabs" id="myTab_user" style="margin-right:8px; margin-top:2px; width:90px;">
+                    <li><a style="font-size: 16px; font-weight: bold;">拼音</a></li>
+                    <li class="active"><a href="#txtAnswer1">Zhang</a></li>
+                    <li><a href="#txtAnswer2">Sun</a></li>
+                    <li><a href="#txtAnswer3">Wu</a></li>
+                    <li><a href="#txtAnswer4">Ji</a></li>
+                </ul>
+                <div class="tab-content" style="height: 100%; float: left;">
+                    <canvas class="tab-pane active" id="txtAnswer1" width="100%" height="100%">浏览器不支持Canvas</canvas>
+                    <canvas class="tab-pane" id="txtAnswer2" width="100%" height="100%"></canvas>
+                    <canvas class="tab-pane" id="txtAnswer3" width="100%" height="100%"></canvas>
+                    <canvas class="tab-pane" id="txtAnswer4" width="100%" height="100%"></canvas>
+                </div>
+                <div style="clear: both; margin-bottom: 5px;"></div>
+                <div class="progress-bar orange"><span id="sprogress" style="width: 100%;"></span></div>
+            </div>
+            <div id="user_operation" class="ui-grid-b" style="margin-top: 2px; width: 100%; padding: 0;">
+                <div class="ui-block-a">
+                    <a data-role="button" id="rewrite" data-icon="refresh" data-corners="false" onclick="rewrite(0);">清空</a>
+                </div>
+                <div class="ui-block-b">
+                    <a data-role="button" data-icon="delete" data-corners="false" id="btnRewrite" onclick="rewrite(1);">重置</a>
+                </div>
+                <div class="ui-block-c">
+                    <a data-role="button" data-icon="check" data-corners="false" id="btnAnswer" onclick="answer();">提交</a>
+                </div>
+            </div>
+            <div id="judge_operation" class="ui-grid-a" style="margin-top: 2px; width: 100%; padding: 0; display: none;">
+                <div class="ui-block-a">
+                    <a data-role="button" data-icon="delete" data-corners="false" id="A2" onclick="judge_answer(0);">错误</a>
+                </div>
+                <div class="ui-block-b">
+                    <a data-role="button" data-icon="check" data-corners="false" onclick="judge_answer(1);">正确</a>
+                </div>
+            </div>
+            <div style="margin-left: 5px; margin-right: 6px;">
+                <a id="exitTable" data-role="button" data-corners="false" style="display: none;" onclick="exit();">退出当前组</a>
+                <a id="btnStart" data-role="button" data-corners="false" style="display: none;" onclick="start_game();">比赛开始</a>
+                <a id="btnNextGroup" data-role="button" data-corners="false" style="display: none;" onclick="next_group();">下一题</a>
+                <a id="btnJudgeExit" data-role="button" data-corners="false" style="display: none;" onclick="judge_application(0);">退出裁判角色</a>
+                <a id="btnscores" data-role="button" data-corners="false" style="display: none;" href="#pagescore" data-rel="dialog" data-transition="flip">查看积分</a>
+            </div>
+        </div>
+        <!-- panel 02 -->
+        <div class="panel left" data-role="panel" data-position="right" data-transition="slide" data-display="overlay" id="panel_left">
+            <div id="chatalertmsg" style="height: 50px; margin-bottom: 15px; width: 100%;"></div>
+            <div class="grouptitle">聊天室</div>
+            <div style="margin-top: 10px; overflow: auto;" id="chatbox"></div>
+            <div style="position: absolute; bottom: 20px; width: 96%;">
+                <textarea type="text" id="txtmsg" name="txtmsg" class="addmsg" maxlength="100" placeholder="发消息"></textarea>
+                <a href="#" data-role="button" data-corners="false" class="btnSend" id="sendmsg">发送</a>
+            </div>
+        </div>
+        <!-- 辅助显示裁判加入信息 -->
+        <div class="judge" style=" display:none;">无裁判</div>
+    </div>
+    <!-- 得分榜 -->
+    <div data-role="page" id="pagescore">
+        <div data-role="header"><h1>得分榜</h1></div>
+        <div data-role="content" style="margin: 0; padding: 2px;">
+            <table id="tb_score" class="table table-striped table-hover" style=" margin-top:5px; color:Black;">
+                <tr style="font-weight: bold;">
+                    <td style="width: 60px;">组别</td><td>选手</td><td>得分</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<!-- Scripts -->
+<script src="__ROOT__/mobile/Public/scripts/jquery.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_chat.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_user.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_judge.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_progressbar.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_game_control.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_gameover.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_canvas.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_exception.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_errwords.js"></script>
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/table_eventmanage.js"></script>
+<script src="__ROOT__/mobile/Public/scripts/jquery.mobile-1.3.2.min.js"></script>
+<!-- jNotify.jquery -->
+<script type="text/javascript" src="__ROOT__/mobile/Public/scripts/jNotify.jquery.js"></script>
+<!--Bootstrap-->
+<script type="text/javascript" src="__ROOT__/mobile/Public/bootstrap/js/bootstrap.js"></script>
+<script src="__ROOT__/mobile/Public/scripts/tb_canvas.js"></script>
+<script type="text/javascript">
+    table.init(<{$_REQUEST['rid']}>,<{$_REQUEST['tid']}>,<{$_REQUEST['groups']}>,<{$_REQUEST['upg']}>);
+    table.init_socket();
+    // 存储session
+    table.save_page_state();
+
+    // 设置页面加载完毕，使进度条停止
+    table.entercompleted = 1;
+</script>
+</html>

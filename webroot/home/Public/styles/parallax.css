@@ -1,0 +1,42 @@
+html {
+	height: 100%; overflow: hidden;
+}
+body {
+	height: 100%; overflow: hidden;
+}
+.pagespan {
+	width: 940px;
+}
+.scrollbar {
+	background: rgb(238, 238, 238); top: 10px; width: 2px; right: 10px; bottom: 10px; position: absolute;
+}
+.scrollbar .handle {
+	background: rgb(41, 42, 51); width: 100%; height: 100px; cursor: pointer;
+}
+.scrollbar .handle .mousearea {
+	left: -10px; top: 0px; width: 22px; height: 100%; position: absolute;
+}
+.content {
+	margin: 0px auto; padding: 1px 0px 30px; position: relative; z-index: 70;
+}
+p.center {
+	text-align: center;
+}
+.pos {
+	background: rgb(255, 255, 255); margin: 50px auto; padding: 15px 25px; width: 400px; text-align: right;
+}
+.pos .cur {
+	font-size: 80px;
+}
+.pos .slash {
+	margin: 0px 5px 0px 10px; font-size: 80px;
+}
+.pos .max {
+	color: rgb(170, 170, 170); font-size: 50px;
+}
+.particles {
+	list-style: none; margin: 0px; padding: 0px; left: 0px; top: 0px; width: 0px; height: 0px; position: absolute; text-shadow:1px 1px 1px #000; font-size:20px;
+}
+.particles li {
+	background: rgb(160, 50, 50); margin: 0px; padding: 0px; border-radius: 50%; left: 0px; top: 0px; width: 10px; height: 10px; position: absolute; text-align:center;
+}

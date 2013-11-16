@@ -1,0 +1,162 @@
+/* 选中当前用户的样式 */
+.selecteditem
+{
+    -webkit-box-shadow: 5px 2px 6px #000;
+    -moz-box-shadow: 5px 2px 6px #000;
+}
+/* 当前用户已经挂掉的样式 */
+.dieditem
+{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+/*用户没有选择组时的图标*/
+.headicon_init
+{
+    width: 33px;
+    height: 33px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-width: 1px;
+    border-style: dashed;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/*用户头像小图标*/
+.headicon
+{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    background: url(/Mobile/Common/images/head/headicon.png);
+    background-origin: content; /*从content区域开始显示背景*/
+    background-position: 50% 50%; /*图片上下左右居中*/
+    background-size: contain; /*保持图像本身的宽高比例，将图片缩放到宽度或高度正好适应定义背景的区域*/
+    background-repeat: no-repeat; /*图像不重复显示*/
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: White;
+}
+.userinfo
+{
+    width: 180px;
+    line-height: 45px;
+    float: right;
+    text-align: left;
+    padding-left: 3px;
+}
+
+
+/*裁判*/
+/*用户没有选择组时的图标*/
+.judgeicon_init
+{
+    width: 33px;
+    height: 33px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-width: 1px;
+    border-style: dashed;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/*用户头像小图标*/
+.judgeicon
+{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    background: url(/Mobile/Common/images/head/judge.png);
+    background-origin: content; /*从content区域开始显示背景*/
+    background-position: 50% 50%; /*图片上下左右居中*/
+    background-size: contain; /*保持图像本身的宽高比例，将图片缩放到宽度或高度正好适应定义背景的区域*/
+    background-repeat: no-repeat; /*图像不重复显示*/
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: White;
+}
+
+
+/*通知消息*/
+.notice
+{
+    height: 265px;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: left;
+    background-color: rgba(54, 56, 64, 0.9);
+    overflow: auto;
+}
+.noticemsg
+{
+    line-height: 20px;
+}
+/*聊天窗口*/s
+.chatmsg
+{
+    line-height: 20px;
+}
+.chatmsg a
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* 裁判canvas右侧操作按钮公共样式*/
+#judge_canvas_operation
+{
+    width: 87px;
+    float: right;
+    height: 410px;
+    text-align: center;
+}
+/* 比赛用户canvas右侧操作按钮公共样式*/
+#user_canvas_operation
+{
+    width: 87px;
+    float: right;
+    height: 410px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*给div添加阴影*/
+.boxshadow
+{
+    -moz-border-radius: 5px 5px 5px 5px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=10);
+    -moz-box-shadow: 2px 2px 10px #969696;
+    -webkit-box-shadow: 2px 2px 10px #969696;
+    box-shadow: 2px 2px 10px #969696;
+}
+
+/*给个人大头像添加阴影*/
+.headshadow
+{
+    -moz-border-radius: 5px 5px 5px 5px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=10);
+    -moz-box-shadow: 2px 2px 10px #969696;
+    -webkit-box-shadow: 2px 2px 10px #969696;
+    box-shadow: 2px 2px 5px white;
+}
