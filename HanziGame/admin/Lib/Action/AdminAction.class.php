@@ -14,8 +14,8 @@ class AdminAction extends BaseAction
       	$menulist=array(
       			'key' => '用户管理',
            	    'list'=>array(
-                            array('name'=>'用户信息','url'=>'?m=UserAdmin&a=index'),
-                            array('name'=>'好友管理','url'=>'?m=UserAdmin&a=friend')
+                            array('name'=>'用户账号','url'=>'?m=UserAdmin&a=index'),
+                            array('name'=>'用户信息','url'=>'?m=UserAdmin&a=userinfo')
             	        )
         );
     }

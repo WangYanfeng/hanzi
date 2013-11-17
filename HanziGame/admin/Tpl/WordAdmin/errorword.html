@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>词库管理</title>
+  <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+  <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>  
+</head>
+<body  background='__ROOT__/admin/Public/images/allbg.gif'>
+  <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#D6D6D6">
+    <tr>
+    	<td height="35" background="__ROOT__/admin/Public/images/tbg.gif" bgcolor="#E7E7E7">
+        <table width="96%" border="0" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="24%" style="padding-left:10px;">错词列表</td>
+            <td width="76%" align="right"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table class="table table-hover table-bordered">
+          <tr>
+            <td width="8%" height="24" align="center">题目</td>
+            <td width="12%" align="center">拼音</td>
+            <td width="12%" align="center">文章号</td>
+            <td width="18%" align="center">难度</td>
+            <td width="26%" align="center">解释</td>
+            <td width="12%" align="center">错误次数</td>
+          </tr>
+          <foreach name='words_array' item='list'>
+            <tr bgcolor="#FFFFFF" align="center">
+              <td width="8%"><{$list['topic']}></td>
+              <td width="12%" height="24" align="center"><{$list['pinyin']}></td>
+              <td width="12%" align="center"><{$list['article_id']}></td>
+              <td width="18%" align="center"><{$list['difficulty']}></td>
+              <td width="26%" align="center"><{$list['explanation']}></td>
+              <td width="12%" align="center"><{$list['err_times']}></td>
+              <td><a href="?m=UserAdmin&a=deluser&id=<{$list['id']}>"><u>删除</u></a></td>
+            </tr>
+          </foreach> 
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

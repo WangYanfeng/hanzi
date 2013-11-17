@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>用户管理</title>
+  <link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/bootstrap.min.css">
+  <script type="text/javascript" src="__ROOT__/Public/js/jquery.js"></script>  
+</head>
+<body  background='__ROOT__/admin/Public/images/allbg.gif'>
+  <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#D6D6D6">
+    <tr>
+    	<td height="35" background="__ROOT__/admin/Public/images/tbg.gif" bgcolor="#E7E7E7">
+        <table width="96%" border="0" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="24%" style="padding-left:10px;">用户信息列表</td>
+            <td width="76%" align="right"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table class="table table-hover table-bordered">
+          <tr>
+            <td width="8%" height="24" align="center">用户名</td>
+            <td width="12%" align="center">经验值</td>
+            <td width="12%" align="center">裁判经验</td>
+            <td width="12%" align="center">裁判信誉度</td>
+            <td width="18%" align="center">错词列表</td>
+            <td width="26%" align="center">好友列表</td>
+          </tr>
+          <foreach name='userinfo_array' item='list'>
+            <tr bgcolor="#FFFFFF" align="center">
+              <td width="8%"><{$list['account']}></td>
+              <td width="12%" height="24" align="center"><{$list['points']}></td>
+              <td width="12%" align="center"><{$list['judge_experience']}></td>
+              <td width="12%" align="center"><{$list['credit']}></td>
+              <td width="18%" align="center">
+                <div style="overflow-y:auto">
+                  <{$list['error_words']}>
+                </div>
+              </td>
+              <td width="26%" align="center">
+                <div style="overflow-y:auto">
+                  <{$list['friends']}>
+                </div>
+              </td>
+            </tr>
+          </foreach> 
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

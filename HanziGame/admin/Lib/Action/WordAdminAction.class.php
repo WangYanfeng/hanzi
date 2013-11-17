@@ -13,7 +13,14 @@ class WordAdminAction extends Action
 		$this->display();
 	}
   function errorword(){
-    echo "错词集锦";
+    $model=new Model('hangame');
+    $words_array=$model->table('tb_words_basic b,tb_words_active a')->where('a.aid=b.id')
+              ->field('b.* ,a.err_times')
+              ->order('a.err_times desc')
+              ->limit(50)
+              ->select();
+    $this->assign('words_array',$words_array);
+    $this->display();
   }
   function getWords(){
     import('ORG.Util.Page');// 导入分页类
