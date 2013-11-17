@@ -9,7 +9,7 @@
     	<td height="27" colspan="1" background="__ROOT__/admin/Public/images/tbg.gif" bgcolor="#E7E7E7">
         <table width="96%" border="0" cellspacing="1" cellpadding="1">
           <tr>
-            <td style="padding-left:10px;">导入词库</td>
+            <td style="padding-left:10px;">导出词库</td>
           </tr>
         </table>
       </td>
@@ -19,9 +19,8 @@
         <table >
           <tr>
             <td>
-              <form method="post" action="?m=WordAdmin&a=word_add" enctype="multipart/form-data">  
-                <h3>导入Excel表：</h3><input  type="file" name="file_words" />  
-                <input type="submit"  value="导入" />  
+              <form method="post" action="?m=WordAdmin&a=exportExcel">  
+                <input class="btn" type="submit"  value="导出" />  
               </form> 
             </td>
           </tr>

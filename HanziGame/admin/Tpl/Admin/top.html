@@ -10,9 +10,9 @@
   $(function(){
     $("#top_pan #item1").css('background','#ffffff');
     $("#top_pan #item1").css("height","35px");
-    $("#top_pan div").click(function() {      
+    $("#top_pan div a").click(function() {      
       $("#top_pan div").css("background","#abcdef");
-      $(this).css("background","#ffffff");
+      $(this).parent('div').css("background","#ffffff");
       $(this).css("height","35px");
     });
   });
@@ -26,8 +26,8 @@
     		<table width="100%" border="0" cellspacing="0" cellpadding="0">
     			<tr>
     				<td align="right" width="96">
-              <notempty name="Think.session.user">
-                <a href="{:U('Index/logout')}" target="_top"s class='loginout'>您好,<{$Think.session.user.account}>! |注销退出</a></td>
+              <notempty name="Think.session.admin">
+                <a href="?m=Index&a=logout" target="_top"s class='loginout'>您好,<{$Think.session.admin.account}>! |注销退出</a></td>
               </notempty> 
     			</tr>
     			<tr>

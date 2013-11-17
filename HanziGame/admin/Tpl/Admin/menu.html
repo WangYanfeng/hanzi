@@ -11,9 +11,15 @@
   $(function(){
     var href=$("table dd li:first a").attr("href");
     window.parent.main.location.href=href;
+    $(".items:first").css("background","rgb(240, 100, 60)");
+    $(".items a").click(function() {
+      $(".items").css("background","rgb(240,160,60)");
+      $(this).parent('div').css("background","rgb(240, 100, 60)");
+      $(this).css("height","35px");      
+    });
   });
 </script>	
-<base target="main" />	
+<base target="main" />
 </head>
 <body target="main">
   <table>

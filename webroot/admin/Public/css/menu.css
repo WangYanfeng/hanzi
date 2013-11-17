@@ -31,6 +31,7 @@ div.items
 {
 	line-height:30px;
   background-color:rgb(240,160,60);
+  border-radius: 6px;
   cursor: pointer;
 }
 div.items:hover

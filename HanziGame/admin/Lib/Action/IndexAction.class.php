@@ -8,13 +8,21 @@ class IndexAction extends Action {
     	if($this->isPost()){
     		$user = $_POST['userName'];
             $pwd = $_POST['password'];
-            $DBuser_basic=D('user_basic');
-            if($user=='admin'&&$pwd=='admin'){
-            	session('user', array(
+            $DBadmin=D('admin');
+            $res=$DBadmin->where("account='".$user."' AND pwd='".$pwd."'")->find();
+            if($res){
+            	session('admin', array(
                             'id' =>1,
                             'account' => $user
                 ));
-            	$this->redirect('__APP__/Admin/admin');
+            	//$this->redirect('__APP__/Admin/admin');
+                    // 成功后跳转页面
+                header('Location:admin.php?m=Admin&a=admin');
+            }
+            else{
+                $result='密码错误';
+                $this->assign('result',$result);
+                $this->display();
             }
     	}else{
     		$this->display();

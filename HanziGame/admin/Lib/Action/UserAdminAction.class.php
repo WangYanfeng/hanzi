@@ -14,5 +14,16 @@ class UserAdminAction extends BaseAction
 	function friend(){
 		echo "好友操作";
 	}
+	function deluser(){
+		$uid=I("id");
+		$DBuser_basic=M('user_basic');
+		$res=$DBuser_basic->where("id='".$uid."'")->delete();
+		if ($res) {
+			$this->success('删除成功！');
+		}
+		else{
+			$this->error('删除失败，请重试！');
+		}
+	}
 }
 ?>

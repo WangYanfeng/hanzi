@@ -10,7 +10,7 @@ class BaseAction extends Action
 		$this->checklogin();
 	}
 	function checklogin(){
-		if ((!isset($_SESSION['user']) || !$_SESSION['user'])) {
+		if ((!isset($_SESSION['admin']) || !$_SESSION['admin'])) {
 			$this->error("没有登录", '__APP__/Index/login');
 		}
 		

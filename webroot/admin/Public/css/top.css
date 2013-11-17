@@ -22,6 +22,7 @@ div.item
 {
   text-align:center;
   background:#abcdef;
+  border-radius: 6px 6px 0px 0px;
 	width:120px;
 	height:33px;
 	line-height:30px;

@@ -79,8 +79,23 @@ class WordAdminAction extends Action
           }  
 	}
 	function wordexport(){
-		echo "导出";
+		$this->display();
 	}
+  function exportExcel(){
+    import('ORG.Util.ArrayToExcel');
+    $xlsName  = "Words";
+    $xlsCell  = array(
+            array('topic','题目'),
+            array('difficulty','难度'),
+            array('pinyin','拼音'),
+            array('article_id','关联文章id')
+        );
+    $DBwords_basic= M('words_basic');
+    $xlsData  = $DBwords_basic->Field('topic,difficulty,pinyin,article_id')->select();
+    $ArrayToExcel=new ArrayToExcel();
+    //dump($xlsData);die();
+    $ArrayToExcel->exportExcel($xlsName,$xlsCell,$xlsData);
+  }
   public function page($param) {
         extract($param);
         import("@.ORG.Page");
