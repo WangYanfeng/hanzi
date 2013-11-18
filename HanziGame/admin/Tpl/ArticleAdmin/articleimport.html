@@ -11,7 +11,7 @@
     	<td height="35" background="__ROOT__/admin/Public/images/tbg.gif" bgcolor="#E7E7E7">
         <table width="96%" border="0" cellspacing="1" cellpadding="1">
           <tr>
-            <td width="24%" style="padding-left:10px;">美文修改</td>
+            <td width="24%" style="padding-left:10px;">美文入库</td>
             <td width="76%" align="right"><a href="?m=ArticleAdmin&a=index">返回美文列表</a></td>
           </tr>
         </table>
@@ -20,19 +20,18 @@
     <tr>
       <td style="padding-left:30px;padding-top:20px">
         <br>
-        <form action="?m=ArticleAdmin&a=editArticle" method="post">
+        <form action="?m=ArticleAdmin&a=articleimport" method="post">
           <fieldset>
-            <legend>修改--<{$article[comment]}></legend>
-            <label style="display:none">
-              <input name="id" value="<{$article[id]}>">
-            </label>
+            <legend>添加文章</legend>
             <label>作者</label>
-            <input style="height:35px" type="text" name="author"  value="<{$article[author]}>">
+            <input style="height:35px" type="text" name="author">
             <label>文章内容</label>
             <label>
-               <textarea style="width:500px" name="content" rows="15"><{$article[content]}></textarea>
+               <textarea style="width:500px" name="content" rows="15"></textarea>
             </label>
-            <button type="submit" class="btn">提交修改</button>
+              <label>相关</label>
+            <input style="width:500px" name="comment">
+            <button type="submit" class="btn">添加</button>
           </fieldset>
         </form>
       </td>
