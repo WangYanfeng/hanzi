@@ -33,6 +33,8 @@ class UserAdminAction extends BaseAction
 	function deluser(){
 		$uid=I("id");
 		$DBuser_basic=M('user_basic');
+		$DBuser_active=M('user_active');
+		$res=$DBuser_active->where("uid='".$uid."'")->delete();
 		$res=$DBuser_basic->where("id='".$uid."'")->delete();
 		if ($res) {
 			$this->success('删除成功！');

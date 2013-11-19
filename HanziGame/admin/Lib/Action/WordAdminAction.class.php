@@ -12,6 +12,19 @@ class WordAdminAction extends Action
 		$this->assign('word_array',$word_array);
 		$this->display();
 	}
+  function delword(){
+    $id=I('id');
+    $DBwords_basic=M('words_basic');
+    $DBwords_active=M('words_active');
+    $res=$DBwords_active->where("aid='".$id."'")->delete();
+    $res=$DBwords_basic->where("id='".$id."'")->delete();
+    if ($res) {
+      $this->success('删除成功！');
+    }
+    else{
+      $this->error('删除失败，请重试！');
+    }
+  }
   function errorword(){
     $model=new Model('hangame');
     $words_array=$model->table('tb_words_basic b,tb_words_active a')->where('a.aid=b.id')

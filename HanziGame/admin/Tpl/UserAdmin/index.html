@@ -25,7 +25,7 @@
           <td width="12%" align="center">密码</td>
           <td width="18%" align="center">邮箱</td>
           <td width="26%" align="center">评论</td>
-          <td width="12%" align="center">注册时间</td>
+          <td width="18%" align="center">注册时间</td>
         </tr>
         <foreach name='user_array' item='list'>
           <tr bgcolor="#FFFFFF" align="center">
@@ -34,8 +34,8 @@
             <td width="12%" align="center"><{$list['pwd']}></td>
             <td width="18%" align="center"><{$list['email']}></td>
             <td width="26%" align="center"><{$list['comment']}></td>
-            <td width="12%" align="center"><{$list['in_time']}></td>
-            <td><a href="?m=UserAdmin&a=deluser&id=<{$list['id']}>"><u>删除</u></a></td>
+            <td width="18%" align="center"><{$list['in_time']}></td>
+            <td><button onclick="window.location.href='?m=UserAdmin&a=deluser&id=<{$list['id']}>'">删除</button></td>
           </tr>
         </foreach> 
       </table>
