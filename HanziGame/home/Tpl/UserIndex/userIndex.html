@@ -55,6 +55,17 @@
 							<div id="modifyinfo">
 								<div>
 									<div>修改个人信息</div>
+									<div style="text-align:left">
+										<span>上传个人头像</span>
+										<div>
+											<form id="upload" method='post' action="?m=UserIndex&a=upload" enctype="multipart/form-data">
+												<div style="border:1px solid #d4d4d4; background:#FFC;color:#393939; padding:8px 20px;float:auto; width:450px;margin:2px">上传允许文件类型：gif png jpg 图像文件，并生成2张缩略图，其中大图带水印，生成后会删除原图。</div>
+												<input style="display:none" name="id" value="<{$userAccount['id']}>">
+												<input name="image" id="image" type="file" />
+												<input type="submit" value="提交" class="button" >
+											</form>
+										</div>
+									</div>
 								</div>
 								<hr>
 								<div>

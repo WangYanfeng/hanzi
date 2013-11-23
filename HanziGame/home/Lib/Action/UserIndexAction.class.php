@@ -62,5 +62,46 @@ class UserIndexAction extends BaseAction
 		}
 		return($friendsName);
 	}
+	function upload(){
+		if (!empty($_FILES)) {
+            //如果有文件上传 上传附件
+            $uid=I("id");
+            $this->_upload($uid);
+        }
+	}
+	protected function _upload($id) {
+        import('ORG.Util.UploadFile');
+        //导入上传类
+        $upload = new UploadFile();    
+        $upload->maxSize= 3292200;    //设置上传文件大小
+        $upload->allowExts= explode(',', 'jpg,gif,png,jpeg');//设置上传文件类型
+        $upload->savePath= '../webroot/home/Public/images/user/'; //设置附件上传目录
+        $upload->thumb= true;//设置需要生成缩略图，仅对图像文件有效
+        $upload->imageClassPath= 'ORG.Util.Image'; // 设置引用图片类库包路径
+        //$upload->thumbPrefix= 'm_,s_';  //生产2张缩略图
+        $upload->thumbPrefix= 's_'; //设置需要生成缩略图的文件后缀 
+        $upload->thumbMaxWidth= '110';//设置缩略图最大宽度
+        $upload->thumbMaxHeight= '110'; //设置缩略图最大高度
+        $upload->saveRule='uniqid';//设置上传文件规则
+        $upload->thumbRemoveOrigin = true; //删除原图
+        if (!$upload->upload()) {
+            //捕获上传异常
+            $this->error($upload->getErrorMsg());
+        }else{
+        	$uploadList = $upload->getUploadFileInfo();
+        	//dump($uploadList);
+        	$url=$uploadList[0]['savepath'].$uploadList[0]['savename'];
+        	//echo $url;die();
+        }
+        $user_active= M('user_active');
+        //保存当前数据对象
+        $data['url']=$url;
+        //$list   = $model->where("id='".$id."'")->update($data);
+        if ($list !== false) {
+            $this->success('上传图片成功！');
+        } else {
+            $this->error('上传图片失败!');
+        }
+    }
 }
 ?>
